@@ -16,7 +16,7 @@ public class Player_Movement : MonoBehaviour
     public bool onGround;
     bool jumping = false;
 
-    float Speed = 800f;
+    float Speed = 900f;
     float jump = 50f;
     float doublejump =60f;
    
@@ -68,7 +68,7 @@ public class Player_Movement : MonoBehaviour
 
         if (Rb.transform.position.y < -33f)
         {
-            PauseGame();
+           
         }
 
     }
@@ -96,13 +96,6 @@ public class Player_Movement : MonoBehaviour
         Gizmos.DrawWireSphere(GroundTranform.position, CheckRedias);
     }
 
-    void PauseGame()
-    {
-        Time.timeScale = 0;
-    }
-    void ResumeGame()
-    {
-        Time.timeScale = 1;
-    }
+ 
 
 }

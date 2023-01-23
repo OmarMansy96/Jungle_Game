@@ -8,7 +8,7 @@ public class Collectables : MonoBehaviour
     public AudioSource collectSound;
     public GameObject explosion;
     SpriteRenderer sR;
-    public float itemsScore; 
+    public float Collectables_Score;
 
     
     void Start()

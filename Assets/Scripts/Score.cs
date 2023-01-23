@@ -1,11 +1,16 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
-public class Score : Collectables
+public class Score : MonoBehaviour
 {
-    float score;
+    public GameObject gameOver;
+    public Text score;
+    public Text health;
+    float player_Score;
     float maxHealth=5f, currentHealth;
+
 
     void Start()
     {
@@ -16,7 +21,14 @@ public class Score : Collectables
 
     void Update()
     {
-      
+        health.text = $"Health: {currentHealth} / {maxHealth}";
+        score.text = $"Score: {player_Score}";
+
+        if (currentHealth <= 0f || transform.position.y < -33f)
+        {
+            gameOver.SetActive(true);
+            Time.timeScale = 0;
+        }
     }
 
 
@@ -28,17 +40,14 @@ public class Score : Collectables
     {
         if (others.CompareTag("collectables"))
         {
-            score = score + itemsScore;
-            Debug.Log("Score: " + score); 
-
+            player_Score += others.GetComponent<Collectables>().Collectables_Score;
         }
 
 
         if (others.CompareTag("Enemies"))
         {
             currentHealth--;
-            Debug.Log("maxHealth: " + maxHealth);
-            Debug.Log("currentHealth: " + currentHealth);
+          
         }
        
     }

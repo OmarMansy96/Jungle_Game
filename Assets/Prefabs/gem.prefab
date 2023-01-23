@@ -227,7 +227,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   collectSound: {fileID: 0}
   explosion: {fileID: 4827853939279916403}
-  itemsScore: 10
+  Collectables_Score: 20
 --- !u!58 &4827853940226570323
 CircleCollider2D:
   m_ObjectHideFlags: 0

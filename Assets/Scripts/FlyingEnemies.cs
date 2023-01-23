@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class FlyingEnemies : MonoBehaviour
 {
-    public Transform Player;
+    Transform Player;
     SpriteRenderer spR;
     [SerializeField] float flyingSpeed=2f;
     [SerializeField] float distance = 3f;
-    bool isFlying=true;
+    [SerializeField] bool isFlying=true;
     Vector2 startPoint, endPoint;
    
     void Start()
     {
 
         spR = GetComponent<SpriteRenderer>();
+        Player = FindObjectOfType<Player_Movement>().transform;// || Player = GameObject.Find("player");
+
         startPoint = transform.position;
         endPoint = new Vector2(startPoint.x, transform.position.y + distance);
 
