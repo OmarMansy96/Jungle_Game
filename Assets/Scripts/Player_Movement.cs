@@ -16,9 +16,9 @@ public class Player_Movement : MonoBehaviour
     public bool onGround;
     bool jumping = false;
 
-    float Speed = 900f;
-    float jump = 50f;
-    float doublejump =60f;
+    float Speed = 950f;
+    float jump = 60f;
+    float doublejump =80f;
    
     
     void Start()
@@ -75,8 +75,16 @@ public class Player_Movement : MonoBehaviour
 
 
 
+    private void OnTriggerEnter2D(Collider2D others)
+    {
+        if (others.CompareTag("Enemies"))
+        {
+            Anim.SetTrigger("hurt");
+        }
+    }
     private void OnCollisionEnter2D(Collision2D others)
     {
+        
         if (others.collider.tag == "Platforms")
         {
             transform.SetParent(others.transform);

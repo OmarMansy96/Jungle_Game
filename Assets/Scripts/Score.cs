@@ -6,11 +6,13 @@ using UnityEngine.UI;
 public class Score : MonoBehaviour
 {
     public GameObject gameOver;
+    public AudioSource dead;
     public Text score;
     public Text health;
     float player_Score;
     float maxHealth=5f, currentHealth;
 
+    bool deadSound = false;
 
     void Start()
     {
@@ -23,12 +25,19 @@ public class Score : MonoBehaviour
     {
         health.text = $"Health: {currentHealth} / {maxHealth}";
         score.text = $"Score: {player_Score}";
-
+        
         if (currentHealth <= 0f || transform.position.y < -33f)
         {
+
+            if (deadSound == false)
+            {
+                dead.Play();
+                deadSound = true;
+            }
             gameOver.SetActive(true);
             Time.timeScale = 0;
         }
+
     }
 
 

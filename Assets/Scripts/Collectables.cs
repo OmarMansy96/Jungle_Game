@@ -30,7 +30,7 @@ public class Collectables : MonoBehaviour
             //transform.GetChild(0).gameObject.SetActive(true);
             explosion.SetActive(true);
             StartCoroutine(waitingExplosion());
-
+            collectSound.Play();
            
         }
     }

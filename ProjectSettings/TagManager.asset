@@ -10,6 +10,7 @@ TagManager:
   - collectables
   - Enemies
   - Dead
+  - theEnd
   layers:
   - Default
   - TransparentFX
