@@ -31,6 +31,7 @@ public class Score : MonoBehaviour
 
             if (deadSound == false)
             {
+                transform.rotation = Quaternion.EulerAngles(transform.rotation.eulerAngles.x, transform.rotation.eulerAngles.y, (transform.rotation.eulerAngles.z + 80f));
                 dead.Play();
                 deadSound = true;
             }
